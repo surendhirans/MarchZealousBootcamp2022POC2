@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import { useState } from 'react';
+import { adding } from './Connect';
 
 
 
@@ -51,7 +52,7 @@ export const NewAccount=()=>{
     }
 
 
-    const isOkay=()=>{
+    const isOkay=async()=>{
         if(validate.pass1===validate.pass2)
         {
             setAccount((old)=>{
@@ -60,7 +61,9 @@ export const NewAccount=()=>{
                     "password":validate.pass1
                 }
             })
-            alert(JSON.stringify(account))
+            const o = await adding(account)
+            alert(o.data)
+            reset()
         }
         else{
             alert("Invalid credentials")
