@@ -55,12 +55,7 @@ export const NewAccount=()=>{
     const isOkay=async()=>{
         if(validate.pass1===validate.pass2)
         {
-            setAccount((old)=>{
-                return{
-                    ...old,
-                    "password":validate.pass1
-                }
-            })
+            account.password=validate.pass1
             const o = await adding(account)
             alert(o.data)
             reset()

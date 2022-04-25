@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { Agaram, Thenali, Vikatan } from "./MyComps";
 import { NewAccount } from "./SignUp";
+import { Login } from "./Login";
 
 const App=()=>{
   return(
@@ -10,6 +11,7 @@ const App=()=>{
       <BrowserRouter>
         <Menus/>
         <Routes>
+          <Route path="/" exact element={<Login/>}/>
           <Route path="/sign" exact element={<NewAccount/>}/>
           <Route path="/second/:gopi" exact element={<Vikatan/>}/>
           <Route path="/third" exact element={<Thenali/>}/>
